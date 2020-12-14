@@ -2,7 +2,8 @@ import { TodosComponent } from './todos.component';
 import { TodoService } from './todo.service'; 
 import { Observable } from 'rxjs/Observable';
 import from 'rxjs/add/observable/from';
-import from 'rxjs/add/observable/empty'
+import fromimport { empty } from 'rxjs/Observer';
+ 'rxjs/add/observable/empty'
 
 // Testing ngOnInit()
 // Component contains service
@@ -61,4 +62,23 @@ describe('TodosComponent', () => {
 
     expect(todoComponent.message).toBe(errorMessage);
   });
+
+  it('should call server to delete todo item if user confirms', () => {
+     spyOn(window, 'confirm').and.returnValue(true)
+     let spy = spyOn(todoService, 'delete').and.returnValue(Observable.empty())
+
+     todoComponent.delete(1);
+
+    //  expect(spy).toHaveBeenCalled() // more generic
+     expect(spy).toHaveBeenCalledWith(1)
+  });
+
+  it('should NOT call server to delete a todo item if user cancels', () => {
+    spyOn(window, 'confirm').and.returnValue(false)
+    let spy = spyOn(todoService, 'delete').and.returnValue(Observable.empty())
+
+    todoComponent.delete(1);  
+
+    expect(spy).not.toHaveBeenCalledWith()
+ });
 });
