@@ -63,8 +63,10 @@ describe('TodosComponent', () => {
     expect(todoComponent.message).toBe(errorMessage);
   });
 
+  // if block testing with comfirmation window
   it('should call server to delete todo item if user confirms', () => {
-     spyOn(window, 'confirm').and.returnValue(true)
+     spyOn(window, 'confirm').and.returnValue(true) // real window confirmation should not show up when test runs therefore must be mocked
+     // mocking server delete()
      let spy = spyOn(todoService, 'delete').and.returnValue(Observable.empty())
 
      todoComponent.delete(1);
@@ -73,9 +75,10 @@ describe('TodosComponent', () => {
      expect(spy).toHaveBeenCalledWith(1)
   });
 
+  // another window confirmation scenario
   it('should NOT call server to delete a todo item if user cancels', () => {
     spyOn(window, 'confirm').and.returnValue(false)
-    let spy = spyOn(todoService, 'delete').and.returnValue(Observable.empty())
+    let spy = spyOn(todoService, 'delete').and.returnValue(Observable.empty()) // empty observation
 
     todoComponent.delete(1);  
 
