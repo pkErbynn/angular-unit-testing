@@ -10,3 +10,12 @@ describe('Compute', () =>{
         expect(res).toBe(0);
     })
 })
+
+
+// nb: 
+// if method does only console log whithout changing state 
+// and it's a void, verify its invocation times
+// also, it's spyOn returns nothing
+
+// const logger = jasmine.createSpy("LoggerService", ["log"]);
+// logger.log.and.returnValue();
