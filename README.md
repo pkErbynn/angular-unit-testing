@@ -1,6 +1,6 @@
 # TestingDemo
 
-This demo covers only unit testing with
+This demo covers writing unit test for components in isolation (without template interration). It covers only unit testing with
 
 - arrays
 - setup and tierdown
@@ -10,8 +10,7 @@ This demo covers only unit testing with
 
 Does *NOT* cover testing with 
 
-- views and directives
-- bindings
+- templates (directives, binding)
 - routing and
 - navigations
 
