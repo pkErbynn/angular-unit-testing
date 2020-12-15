@@ -27,4 +27,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng test --code-coverage` to know which parts of the code is covered with test.
 
-> NB: Project might have test running Karma issues but the concept is clear
+> NB: Project might have test running Karma issues but the concept is very clear
